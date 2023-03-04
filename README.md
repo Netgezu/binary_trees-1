@@ -851,10 +851,10 @@
   alex@/tmp/binary_trees$
   ```
 + [x] 34\. AVL - From sorted array<br/>_**[124-sorted_array_to_avl.c](124-sorted_array_to_avl.c)**_ builds an AVL tree from an array.
-  + Prototype: avl_t *sorted_array_to_avl(int *array, size_t size);
-  + Where array is a pointer to the first element of the array to be converted
-  + And size is the number of element in the array
-  + Your function must return a pointer to the root node of the created AVL tree, or NULL on failure
+  + Prototype: `avl_t *sorted_array_to_avl(int *array, size_t size);`
+  + Where `array` is a pointer to the first element of the array to be converted
+  + And `size` is the number of element in the array
+  + Your function must return a pointer to the root node of the created AVL tree, or `NULL` on failure
   + You can assume there will be no duplicate value in the array
   + You are not allowed to rotate
   + You can only have 2 functions in your file
@@ -871,24 +871,91 @@
                                                                              (098)
   alex@/tmp/binary_trees$
   ```
-+ [x] 35\. Big O #AVL Tree<br/>_**[factors](factors)**_ contains the average time complexities of those operations on an AVL Tree (one answer per line):
++ [x] 35\. Big O #AVL Tree<br/>_**[125-O](125-O)**_ contains the average time complexities of those operations on an AVL Tree (one answer per line):
   + Inserting the value `n`
   + Removing the node with the value `n`
   + Searching for a node in an AVL tree of size n
-+ [x] 36\. Factorize all the things!<br/>_**[factors](factors)**_ factorizes as many numbers as possible into a product of two smaller numbers.
-  + Usage: `factors <file>`
-  + Output format: `n=p*q`
-  + You can work on the numbers of the file in the order of your choice
-  + Your program should run without any dependency: You will not be able to install anything on the machine we will run your program on
-  + Time limit: Your program will be killed after 5 seconds if it hasn’t finish
-  + Push all your scripts, source code, etc… to your repository
-+ [x] 37\. Factorize all the things!<br/>_**[factors](factors)**_ factorizes as many numbers as possible into a product of two smaller numbers.
-  + Usage: `factors <file>`
-  + Output format: `n=p*q`
-  + You can work on the numbers of the file in the order of your choice
-  + Your program should run without any dependency: You will not be able to install anything on the machine we will run your program on
-  + Time limit: Your program will be killed after 5 seconds if it hasn’t finish
-  + Push all your scripts, source code, etc… to your repository
++ [x] 36\. Is Binary heap<br/>_**[130-binary_tree_is_heap.c](130-binary_tree_is_heap.c)**_ checks if a binary tree is a valid [Max Binary Heap](https://en.wikipedia.org/wiki/Binary_heap).
+  + Prototype: int binary_tree_is_heap(const binary_tree_t *tree);
+  + Where tree is a pointer to the root node of the tree to check
+  + Your function must return 1 if tree is a valid Max Binary Heap, and 0 otherwise
+  + If tree is NULL, return 0
+  
+  Properties of a Max Binary Heap:
+  + It’s a complete tree
+  + In a Max Binary Heap, the value at root must be maximum among all values present in Binary Heap
+  + The last property must be recursively true for all nodes in Binary Tree
+  
+  __Example__:
+  ```c
+  alex@/tmp/binary_trees$ gcc -Wall -Wextra -Werror -pedantic binary_tree_print.c 130-main.c 130-binary_tree_is_heap.c 0-binary_tree_node.c -o 130-is_heap
+  alex@/tmp/binary_trees$ ./130-is_heap
+         .-------(098)--.
+    .--(090)--.       (085)
+  (079)     (080)
+  Is 98 heap: 1
+  Is 90 heap: 1
+         .-------(098)-------.
+    .--(090)--.         .--(085)
+  (079)     (080)     (097)
+  Is 98 heap: 0
+         .-------(098)--.
+    .--(090)--.       (085)--.
+  (079)     (080)          (079)
+  Is 98 heap: 0
+  alex@/tmp/binary_trees$
+  ```
++ [x] 37\. Heap - Insert<br/>_**[131-heap_insert.c](131-heap_insert.c)**_ inserts a value in Max Binary Heap.
+  + Prototype: `heap_t *heap_insert(heap_t **root, int value);`
+  + Where `root` is a double pointer to the root node of the Heap to insert the value
+  + And `value` is the value to store in the node to be inserted
+  + Your function must return a pointer to the created node, or `NULL` on failure
+  + If the address stored in `root` is `NULL`, the created node must become the root node.
+  + You have to respect a `Max Heap` ordering
+  + You are allowed to have up to `6` functions in your file
+  
+  __Example__:
+  ```c
+  alex@/tmp/binary_trees$ gcc -Wall -Wextra -Werror -pedantic binary_tree_print.c 131-main.c 131-heap_insert.c 0-binary_tree_node.c -o 131-heap_insert
+  alex@/tmp/binary_trees$ ./131-heap_insert
+  Inserted: 98
+  (098)
+  
+  Inserted: 402
+    .--(402)
+  (098)
+  
+  Inserted: 12
+    .--(402)--.
+  (098)     (012)
+
+  Inserted: 46
+         .--(402)--.
+    .--(098)     (012)
+  (046)
+
+  Inserted: 128
+         .-------(402)--.
+    .--(128)--.       (012)
+  (046)     (098)
+
+  Inserted: 256
+         .-------(402)-------.
+    .--(128)--.         .--(256)
+  (046)     (098)     (012)
+
+  Inserted: 512
+         .-------(512)-------.
+    .--(128)--.         .--(402)--.
+  (046)     (098)     (012)     (256)
+
+  Inserted: 50
+              .-------(512)-------.
+         .--(128)--.         .--(402)--.
+    .--(050)     (098)     (012)     (256)
+  (046)
+  alex@/tmp/binary_trees$
+  ```
 + [x] 38\. Factorize all the things!<br/>_**[factors](factors)**_ factorizes as many numbers as possible into a product of two smaller numbers.
   + Usage: `factors <file>`
   + Output format: `n=p*q`
