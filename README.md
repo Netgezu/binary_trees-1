@@ -721,7 +721,7 @@
   Is 98 avl: 0
   alex@/tmp/binary_trees$
   ```
-+ [x] 31\. AVL - Insert<br/>_**[121-avl_insert.c](121-avl_insert.c)**_ inserts a value in an AVL Tree.
++ [ ] 31\. AVL - Insert<br/>_**[121-avl_insert.c](121-avl_insert.c)**_ inserts a value in an AVL Tree.
   + Prototype: `avl_t *avl_insert(avl_t **tree, int value);`
   + Where `tree` is a double pointer to the root node of the AVL tree for inserting the value
   + And `value` is the value to store in the node to be inserted
@@ -772,34 +772,109 @@
                                      (512)
   alex@/tmp/binary_trees$
   ```
-+ [x] 32\. Factorize all the things!<br/>_**[factors](factors)**_ factorizes as many numbers as possible into a product of two smaller numbers.
-  + Usage: `factors <file>`
-  + Output format: `n=p*q`
-  + You can work on the numbers of the file in the order of your choice
-  + Your program should run without any dependency: You will not be able to install anything on the machine we will run your program on
-  + Time limit: Your program will be killed after 5 seconds if it hasn’t finish
-  + Push all your scripts, source code, etc… to your repository
-+ [x] 33\. Factorize all the things!<br/>_**[factors](factors)**_ factorizes as many numbers as possible into a product of two smaller numbers.
-  + Usage: `factors <file>`
-  + Output format: `n=p*q`
-  + You can work on the numbers of the file in the order of your choice
-  + Your program should run without any dependency: You will not be able to install anything on the machine we will run your program on
-  + Time limit: Your program will be killed after 5 seconds if it hasn’t finish
-  + Push all your scripts, source code, etc… to your repository
-+ [x] 34\. Factorize all the things!<br/>_**[factors](factors)**_ factorizes as many numbers as possible into a product of two smaller numbers.
-  + Usage: `factors <file>`
-  + Output format: `n=p*q`
-  + You can work on the numbers of the file in the order of your choice
-  + Your program should run without any dependency: You will not be able to install anything on the machine we will run your program on
-  + Time limit: Your program will be killed after 5 seconds if it hasn’t finish
-  + Push all your scripts, source code, etc… to your repository
-+ [x] 35\. Factorize all the things!<br/>_**[factors](factors)**_ factorizes as many numbers as possible into a product of two smaller numbers.
-  + Usage: `factors <file>`
-  + Output format: `n=p*q`
-  + You can work on the numbers of the file in the order of your choice
-  + Your program should run without any dependency: You will not be able to install anything on the machine we will run your program on
-  + Time limit: Your program will be killed after 5 seconds if it hasn’t finish
-  + Push all your scripts, source code, etc… to your repository
++ [ ] 32\. AVL - Array to AVL<br/>_**[122-array_to_avl.c](122-array_to_avl.c)**_ builds an AVL tree from an array.
+  + Prototype: `avl_t *array_to_avl(int *array, size_t size);`
+  + Where `array` is a pointer to the first element of the array to be converted
+  + And `size` is the number of element in the array
+  + Your function must return a pointer to the root node of the created AVL tree, or `NULL` on failure
+  + If a value of the array is already present in the tree, this value must be ignored
+  
+  __Example__:
+  ```c
+  alex@/tmp/binary_trees$ gcc -Wall -Wextra -Werror -pedantic binary_tree_print.c 122-array_to_avl.c 122-main.c 121-avl_insert.c 0-binary_tree_node.c 14-binary_tree_balance.c 103-binary_tree_rotate_left.c 104-binary_tree_rotate_right.c -o 122-avl_array
+  alex@/tmp/binary_trees$ ./122-avl_array 
+                   .-----------------(047)-----------------.
+         .-------(021)-------.                   .-------(084)-------.
+    .--(002)--.         .--(032)--.         .--(068)--.         .--(091)-------.
+  (001)     (020)     (022)     (034)     (062)     (079)     (087)       .--(098)
+                                                                      (095)
+  alex@/tmp/binary_trees$
+  ```
++ [ ] 33\. AVL - Remove<br/>_**[123-avl_remove.c](123-avl_remove.c)**_ removes a node from an AVL tree.
+  + Prototype: `avl_t *avl_remove(avl_t *root, int value);`
+  + Where `root` is a pointer to the root node of the tree for removing a node
+  + And `value` is the value to remove in the tree
+  + Once located, the node containing a value equals to `value` must be removed and freed
+  + If the node to be deleted has two children, it must be replaced with its first `in-order successor` (not predecessor)
+  + After deletion of the desired node, the tree must be rebalanced if necessary
+  + Your function must return a pointer to the new root node of the tree after removing the desired value, and after rebalancing
+  
+  __Example__:
+  ```c
+  alex@/tmp/binary_trees$ gcc -Wall -Wextra -Werror -pedantic binary_tree_print.c 123-avl_remove.c 123-main.c 103-binary_tree_rotate_left.c 104-binary_tree_rotate_right.c 122-array_to_avl.c 121-avl_insert.c 14-binary_tree_balance.c 3-binary_tree_delete.c 0-binary_tree_node.c -o 123-avl_rm
+  alex@/tmp/binary_trees$ valgrind ./123-avl_rm
+  ==15646== Memcheck, a memory error detector
+  ==15646== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+  ==15646== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+  ==15646== Command: ./123-avl_rm
+  ==15646== 
+                   .-----------------(047)-----------------.
+         .-------(021)-------.                   .-------(084)-------.
+    .--(002)--.         .--(032)--.         .--(068)--.         .--(091)-------.
+  (001)     (020)     (022)     (034)     (062)     (079)     (087)       .--(098)
+                                                                        (095)
+  Removed 47...
+                   .-----------------(062)------------.
+         .-------(021)-------.              .-------(084)-------.
+    .--(002)--.         .--(032)--.       (068)--.         .--(091)-------.
+  (001)     (020)     (022)     (034)          (079)     (087)       .--(098)
+                                                                   (095)
+  Removed 79...
+                   .-----------------(062)-----------------.
+         .-------(021)-------.                   .-------(091)-------.
+    .--(002)--.         .--(032)--.         .--(084)--.         .--(098)
+  (001)     (020)     (022)     (034)     (068)     (087)     (095)
+  Removed 32...
+                   .------------(062)-----------------.
+         .-------(021)-------.              .-------(091)-------.
+    .--(002)--.         .--(034)       .--(084)--.         .--(098)
+  (001)     (020)     (022)          (068)     (087)     (095)
+  Removed 34...
+                   .-------(062)-----------------.
+         .-------(021)--.              .-------(091)-------.
+    .--(002)--.       (022)       .--(084)--.         .--(098)
+  (001)     (020)               (068)     (087)     (095)
+  Removed 22...
+         .------------(062)-----------------.
+    .--(002)-------.              .-------(091)-------.
+  (001)       .--(021)       .--(084)--.         .--(098)
+            (020)          (068)     (087)     (095)
+  ==15646== 
+  ==15646== HEAP SUMMARY:
+  ==15646==     in use at exit: 0 bytes in 0 blocks
+  ==15646==   total heap usage: 48 allocs, 48 frees, 7,350 bytes allocated
+  ==15646== 
+  ==15646== All heap blocks were freed -- no leaks are possible
+  ==15646== 
+  ==15646== For counts of detected and suppressed errors, rerun with: -v
+  ==15646== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+  alex@/tmp/binary_trees$
+  ```
++ [x] 34\. AVL - From sorted array<br/>_**[124-sorted_array_to_avl.c](124-sorted_array_to_avl.c)**_ builds an AVL tree from an array.
+  + Prototype: avl_t *sorted_array_to_avl(int *array, size_t size);
+  + Where array is a pointer to the first element of the array to be converted
+  + And size is the number of element in the array
+  + Your function must return a pointer to the root node of the created AVL tree, or NULL on failure
+  + You can assume there will be no duplicate value in the array
+  + You are not allowed to rotate
+  + You can only have 2 functions in your file
+  
+  __Example__:
+  ```c
+  alex@/tmp/binary_trees$ gcc -Wall -Wextra -Werror -pedantic binary_tree_print.c 124-main.c 124-sorted_array_to_avl.c 0-binary_tree_node.c -o 124-avl_sorted
+  alex@/tmp/binary_trees$ ./124-avl_sorted
+  (001)(002)(020)(021)(022)(032)(034)(047)(062)(068)(079)(084)(087)(091)(095)(098)
+                   .-----------------(047)-----------------.
+         .-------(021)-------.                   .-------(084)-------.
+    .--(002)--.         .--(032)--.         .--(068)--.         .--(091)--.
+  (001)     (020)     (022)     (034)     (062)     (079)     (087)     (095)--.
+                                                                             (098)
+  alex@/tmp/binary_trees$
+  ```
++ [x] 35\. Big O #AVL Tree<br/>_**[factors](factors)**_ contains the average time complexities of those operations on an AVL Tree (one answer per line):
+  + Inserting the value `n`
+  + Removing the node with the value `n`
+  + Searching for a node in an AVL tree of size n
 + [x] 36\. Factorize all the things!<br/>_**[factors](factors)**_ factorizes as many numbers as possible into a product of two smaller numbers.
   + Usage: `factors <file>`
   + Output format: `n=p*q`
