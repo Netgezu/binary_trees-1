@@ -721,13 +721,57 @@
   Is 98 avl: 0
   alex@/tmp/binary_trees$
   ```
-+ [x] 31\. Factorize all the things!<br/>_**[factors](factors)**_ factorizes as many numbers as possible into a product of two smaller numbers.
-  + Usage: `factors <file>`
-  + Output format: `n=p*q`
-  + You can work on the numbers of the file in the order of your choice
-  + Your program should run without any dependency: You will not be able to install anything on the machine we will run your program on
-  + Time limit: Your program will be killed after 5 seconds if it hasn’t finish
-  + Push all your scripts, source code, etc… to your repository
++ [x] 31\. AVL - Insert<br/>_**[121-avl_insert.c](121-avl_insert.c)**_ inserts a value in an AVL Tree.
+  + Prototype: `avl_t *avl_insert(avl_t **tree, int value);`
+  + Where `tree` is a double pointer to the root node of the AVL tree for inserting the value
+  + And `value` is the value to store in the node to be inserted
+  + Your function must return a pointer to the created node, or `NULL` on failure
+  + If the address stored in `tree` is `NULL`, the created node must become the root node.
+  + The resulting tree after insertion, must be a balanced AVL Tree
+  
+  __Example__:
+  ```c
+  alex@/tmp/binary_trees$ gcc -Wall -Wextra -Werror -pedantic binary_tree_print.c 121-avl_insert.c 121-main.c 14-binary_tree_balance.c 103-binary_tree_rotate_left.c 104-binary_tree_rotate_right.c 0-binary_tree_node.c -o 121-avl_insert
+  alex@/tmp/binary_trees$ ./121-avl_insert
+  Inserted: 98
+  (098)
+
+  Inserted: 402
+  (098)--.
+     (402)
+
+  Inserted: 12
+    .--(098)--.
+  (012)     (402)
+
+  Inserted: 46
+    .-------(098)--.
+  (012)--.       (402)
+       (046)
+
+  Inserted: 128
+    .-------(098)-------.
+  (012)--.         .--(402)
+       (046)     (128)
+
+  Inserted: 256
+    .-------(098)-------.
+  (012)--.         .--(256)--.
+       (046)     (128)     (402)
+
+  Inserted: 512
+    .-------(098)-------.
+  (012)--.         .--(256)--.
+       (046)     (128)     (402)--.
+                                (512)
+
+  Inserted: 50
+         .-------(098)-------.
+    .--(046)--.         .--(256)--.
+  (012)     (050)     (128)     (402)--.
+                                     (512)
+  alex@/tmp/binary_trees$
+  ```
 + [x] 32\. Factorize all the things!<br/>_**[factors](factors)**_ factorizes as many numbers as possible into a product of two smaller numbers.
   + Usage: `factors <file>`
   + Output format: `n=p*q`
