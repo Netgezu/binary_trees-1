@@ -562,48 +562,165 @@
   Is 98 bst: 0
   alex@/tmp/binary_trees$
   ```
-+ [x] 25\. Factorize all the things!<br/>_**[factors](factors)**_ factorizes as many numbers as possible into a product of two smaller numbers.
-  + Usage: `factors <file>`
-  + Output format: `n=p*q`
-  + You can work on the numbers of the file in the order of your choice
-  + Your program should run without any dependency: You will not be able to install anything on the machine we will run your program on
-  + Time limit: Your program will be killed after 5 seconds if it hasn’t finish
-  + Push all your scripts, source code, etc… to your repository
-+ [x] 26\. Factorize all the things!<br/>_**[factors](factors)**_ factorizes as many numbers as possible into a product of two smaller numbers.
-  + Usage: `factors <file>`
-  + Output format: `n=p*q`
-  + You can work on the numbers of the file in the order of your choice
-  + Your program should run without any dependency: You will not be able to install anything on the machine we will run your program on
-  + Time limit: Your program will be killed after 5 seconds if it hasn’t finish
-  + Push all your scripts, source code, etc… to your repository
-+ [x] 27\. Factorize all the things!<br/>_**[factors](factors)**_ factorizes as many numbers as possible into a product of two smaller numbers.
-  + Usage: `factors <file>`
-  + Output format: `n=p*q`
-  + You can work on the numbers of the file in the order of your choice
-  + Your program should run without any dependency: You will not be able to install anything on the machine we will run your program on
-  + Time limit: Your program will be killed after 5 seconds if it hasn’t finish
-  + Push all your scripts, source code, etc… to your repository
-+ [x] 28\. Factorize all the things!<br/>_**[factors](factors)**_ factorizes as many numbers as possible into a product of two smaller numbers.
-  + Usage: `factors <file>`
-  + Output format: `n=p*q`
-  + You can work on the numbers of the file in the order of your choice
-  + Your program should run without any dependency: You will not be able to install anything on the machine we will run your program on
-  + Time limit: Your program will be killed after 5 seconds if it hasn’t finish
-  + Push all your scripts, source code, etc… to your repository
-+ [x] 29\. Factorize all the things!<br/>_**[factors](factors)**_ factorizes as many numbers as possible into a product of two smaller numbers.
-  + Usage: `factors <file>`
-  + Output format: `n=p*q`
-  + You can work on the numbers of the file in the order of your choice
-  + Your program should run without any dependency: You will not be able to install anything on the machine we will run your program on
-  + Time limit: Your program will be killed after 5 seconds if it hasn’t finish
-  + Push all your scripts, source code, etc… to your repository
-+ [x] 30\. Factorize all the things!<br/>_**[factors](factors)**_ factorizes as many numbers as possible into a product of two smaller numbers.
-  + Usage: `factors <file>`
-  + Output format: `n=p*q`
-  + You can work on the numbers of the file in the order of your choice
-  + Your program should run without any dependency: You will not be able to install anything on the machine we will run your program on
-  + Time limit: Your program will be killed after 5 seconds if it hasn’t finish
-  + Push all your scripts, source code, etc… to your repository
++ [x] 25\. BST - Insert<br/>_**[111-bst_insert.c](111-bst_insert.c)**_ inserts a value in a Binary Search Tree.
+  + Prototype: `bst_t *bst_insert(bst_t **tree, int value);`
+  + Where `tree` is a double pointer to the root node of the BST to insert the value
+  + And `value` is the value to store in the node to be inserted
+  + Your function must return a pointer to the created node, or `NULL` on failure
+  + If the address stored in `tree` is `NULL`, the created node must become the root node.
+  + If the value is already present in the tree, it must be ignored
+  
+  __Example__:
+  ```c
+  alex@/tmp/binary_trees$ gcc -Wall -Wextra -Werror -pedantic binary_tree_print.c 111-bst_insert.c 111-main.c 0-binary_tree_node.c -o 111-bst_insert
+  alex@/tmp/binary_trees$ ./111-bst_insert
+  Inserted: 98
+  Inserted: 402
+  Inserted: 12
+  Inserted: 46
+  Inserted: 128
+  Inserted: 256
+  Inserted: 512
+  Inserted: 1
+  Node should be nil -> (nil)
+         .-------(098)------------.
+    .--(012)--.         .-------(402)--.
+  (001)     (046)     (128)--.       (512)
+                           (256)
+  alex@/tmp/binary_trees$
+  ```
++ [x] 26\. BST - Array to BST<br/>_**[112-array_to_bst.c](112-array_to_bst.c)**_ builds a Binary Search Tree from an array.
+  + Prototype: `bst_t *array_to_bst(int *array, size_t size);`
+  + Where `array` is a pointer to the first element of the array to be converted
+  + And `size` is the number of element in the array
+  + Your function must return a pointer to the root node of the created BST, or `NULL` on failure
+  + If a value of the array is already present in the tree, this value must be ignored
+  
+  __Example__:
+  ```c
+  alex@/tmp/binary_trees$ gcc -Wall -Wextra -Werror -pedantic binary_tree_print.c 112-array_to_bst.c 112-main.c 111-bst_insert.c 0-binary_tree_node.c -o 112-bst_array
+  alex@/tmp/binary_trees$ ./112-bst_array
+                                       .------------(079)-------.
+                   .-----------------(047)-------.         .--(087)--.
+         .-------(021)-------.              .--(068)     (084)     (091)-------.
+    .--(002)--.         .--(032)--.       (062)                           .--(098)
+  (001)     (020)     (022)     (034)                                   (095)
+  alex@/tmp/binary_trees$
+  ```
++ [x] 27\. BST - Search<br/>_**[113-bst_search.c](113-bst_search.c)**_ searches for a value in a Binary Search Tree.
+  + Prototype: `bst_t *bst_search(const bst_t *tree, int value);`
+  + Where `tree` is a pointer to the root node of the BST to search
+  + And `value` is the value to search in the tree
+  + Your function must return a pointer to the node containing a value equals to `value`
+  + If `tree` is `NULL` or if nothing is found, your function must return `NULL`
+  
+  __Example__:
+  ```c
+  alex@/tmp/binary_trees$ gcc -Wall -Wextra -Werror -pedantic binary_tree_print.c 113-bst_search.c 113-main.c 112-array_to_bst.c 111-bst_insert.c 0-binary_tree_node.c -o 113-bst_search
+  alex@/tmp/binary_trees$ ./113-bst_search 
+                                       .------------(079)-------.
+                   .-----------------(047)-------.         .--(087)--.
+         .-------(021)-------.              .--(068)     (084)     (091)-------.
+    .--(002)--.         .--(032)--.       (062)                           .--(098)
+  (001)     (020)     (022)     (034)                                   (095)
+  Found: 32
+    .--(032)--.
+  (022)     (034)
+  Node should be nil -> (nil)
+  alex@/tmp/binary_trees$
+  ```
++ [ ] 28\. BST - Remove<br/>_**[114-bst_remove.c](114-bst_remove.c)**_ removes a node from a Binary Search Tree.
+  + Prototype: `bst_t *bst_remove(bst_t *root, int value);`
+  + Where `root` is a pointer to the root node of the tree where you will remove a node
+  + And `value` is the value to remove in the tree
+  + Once located, the node containing a value equals to `value` must be removed and freed
+  + If the node to be deleted has two children, it must be replaced with its first `in-order successor` (not predecessor)
+  + Your function must return a pointer to the new root node of the tree after removing the desired value
+  
+  __Example__:
+  ```c
+  alex@/tmp/binary_trees$ gcc -Wall -Wextra -Werror -pedantic binary_tree_print.c 114-bst_remove.c 114-main.c 112-array_to_bst.c 111-bst_insert.c 0-binary_tree_node.c 3-binary_tree_delete.c -o 114-bst_rm
+  alex@/tmp/binary_trees$ valgrind ./114-bst_rm
+  ==14720== Memcheck, a memory error detector
+  ==14720== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+  ==14720== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+  ==14720== Command: ./114-bst_rm
+  ==14720== 
+                                       .------------(079)-------.
+                   .-----------------(047)-------.         .--(087)--.
+         .-------(021)-------.              .--(068)     (084)     (091)-------.
+    .--(002)--.         .--(032)--.       (062)                           .--(098)
+  (001)     (020)     (022)     (034)                                   (095)
+  Removed 79...
+                                       .------------(084)--.
+                   .-----------------(047)-------.       (087)--.
+         .-------(021)-------.              .--(068)          (091)-------.
+    .--(002)--.         .--(032)--.       (062)                      .--(098)
+  (001)     (020)     (022)     (034)                              (095)
+  Removed 21...
+                                  .------------(084)--.
+                   .------------(047)-------.       (087)--.
+         .-------(022)--.              .--(068)          (091)-------.
+    .--(002)--.       (032)--.       (062)                      .--(098)
+  (001)     (020)          (034)                              (095)
+  Removed 68...
+                                  .-------(084)--.
+                   .------------(047)--.       (087)--.
+         .-------(022)--.            (062)          (091)-------.
+    .--(002)--.       (032)--.                             .--(098)
+  (001)     (020)          (034)                         (095)
+  ==14720== 
+  ==14720== HEAP SUMMARY:
+  ==14720==     in use at exit: 0 bytes in 0 blocks
+  ==14720==   total heap usage: 40 allocs, 40 frees, 5,772 bytes allocated
+  ==14720== 
+  ==14720== All heap blocks were freed -- no leaks are possible
+  ==14720== 
+  ==14720== For counts of detected and suppressed errors, rerun with: -v
+  ==14720== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+  alex@/tmp/binary_trees$
+  ```
++ [x] 29\. Big O #BST<br/>_**[115-O](115-O)**_ contains the average time complexities of those operations on a Binary Search Tree (one answer per line):
+  + Inserting the value `n`
+  + Removing the node with the value `n`
+  + Searching for a node in a BST of size n
++ [x] 30\. Is AVL<br/>_**[factors](factors)**_ checks if a binary tree is a valid [AVL Tree](https://en.wikipedia.org/wiki/AVL_tree).
+  + Prototype: `int binary_tree_is_avl(const binary_tree_t *tree);`
+  + Where `tree` is a pointer to the root node of the tree to check
+  + Your function must return `1` if `tree` is a valid AVL Tree, and `0` otherwise
+  + If `tree` is `NULL`, return `0`
+  
+  Properties of an AVL Tree:
+  + An AVL Tree is a BST
+  + The difference between heights of left and right subtrees cannot be more than one
+  + The left and right subtrees must also be AVL trees
+  
+  __Example__:
+  ```c
+  alex@/tmp/binary_trees$ gcc -Wall -Wextra -Werror -pedantic binary_tree_print.c 120-main.c 120-binary_tree_is_avl.c 0-binary_tree_node.c -o 120-is_avl
+  alex@/tmp/binary_trees$ ./120-is_avl
+         .-------(098)--.
+    .--(012)--.       (128)--.
+  (010)     (054)          (402)
+  Is 98 avl: 1
+  Is 12 avl: 1
+         .-------(098)-------.
+    .--(012)--.         .--(128)--.
+  (010)     (054)     (097)     (402)
+  Is 98 avl: 0
+         .-------(098)--.
+    .--(012)--.       (128)--.
+  (010)     (054)          (402)--.
+                                (430)
+  Is 98 avl: 0
+         .-------(098)--.
+    .--(012)--.       (128)--.
+  (010)     (054)          (402)-------.
+                                  .--(430)
+                                (420)
+  Is 98 avl: 0
+  alex@/tmp/binary_trees$
+  ```
 + [x] 31\. Factorize all the things!<br/>_**[factors](factors)**_ factorizes as many numbers as possible into a product of two smaller numbers.
   + Usage: `factors <file>`
   + Output format: `n=p*q`
