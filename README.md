@@ -21,3 +21,12 @@
 * [Tree Traversal](https://www.programiz.com/dsa/tree-traversal)
 * [Binary Search Tree](https://en.wikipedia.org/wiki/Binary_search_tree)
 * [Data structures: Binary Tree](https://www.youtube.com/watch?v=H5JubkIy_p8)
+
+## Tasks To complete ⚓
+
++ [ ] 0\. New node<br/>_**[0-binary_tree_node.c](0-binary_tree_node.c)**_ creates a binary tree node.
+      + Prototype: `binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);`
+      + Where `parent` is a pointer to the parent node of the node to create
+      + And `value` is the value to put in the new node
+      + When created, a node does not have any child
+      + Your function must return a pointer to the new node, or `NULL` on failure
