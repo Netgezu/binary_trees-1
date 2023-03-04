@@ -106,7 +106,7 @@
   ==13264== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
   alex@/tmp/binary_trees$
   ```
-+ [x] 4\. Is leaf<br/>_**[factors](factors)**_ checks if a node is a leaf.
++ [x] 4\. Is leaf<br/>_**[4-binary_tree_is_leaf.c](4-binary_tree_is_leaf.c)**_ checks if a node is a leaf.
   + Prototype: `int binary_tree_is_leaf(const binary_tree_t *node);`
   + Where `node` is a pointer to the node to check
   + Your function must return `1` if `node` is a leaf, otherwise `0`
@@ -540,7 +540,8 @@
   + Where `tree` is a pointer to the root node of the tree to check
   + Your function must return `1` if `tree` is a valid BST, and `0` otherwise
   + If `tree` is `NULL`, return `0`
-<br/>Properties of a Binary Search Tree:
+  
+  Properties of a Binary Search Tree:
   + The left subtree of a node contains only nodes with values less than the node’s value
   + The right subtree of a node contains only nodes with values greater than the node’s value
   + The left and right subtree each must also be a binary search tree
