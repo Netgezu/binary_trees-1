@@ -629,7 +629,7 @@
   Node should be nil -> (nil)
   alex@/tmp/binary_trees$
   ```
-+ [ ] 28\. BST - Remove<br/>_**[114-bst_remove.c](114-bst_remove.c)**_ removes a node from a Binary Search Tree.
++ [x] 28\. BST - Remove<br/>_**[114-bst_remove.c](114-bst_remove.c)**_ removes a node from a Binary Search Tree.
   + Prototype: `bst_t *bst_remove(bst_t *root, int value);`
   + Where `root` is a pointer to the root node of the tree where you will remove a node
   + And `value` is the value to remove in the tree
