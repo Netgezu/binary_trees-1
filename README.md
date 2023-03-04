@@ -29,4 +29,13 @@
    + Where `parent` is a pointer to the parent node of the node to create
    + And `value` is the value to put in the new node
    + When created, a node does not have any child
-   + Your function must return a pointer to the new node, or `NULL` on failure
+   + function returns a pointer to the new node, or `NULL` on failure
+   __Example__:
+   ```c
+   alex@/tmp/binary_trees$ gcc -Wall -Wextra -Werror -pedantic binary_tree_print.c 0-main.c 0-binary_tree_node.c -o 0-node
+   alex@/tmp/binary_trees$ ./0-node
+          .-------(098)-------.
+     .--(012)--.         .--(402)--.
+   (006)     (016)     (256)     (512)
+   alex@/tmp/binary_trees$
+   ```
